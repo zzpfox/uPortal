@@ -167,11 +167,13 @@ public final class SmartLdapGroupStore implements IEntityGroupStore {
                 }
             };
 
+    @Override
     public boolean contains(IEntityGroup group, IGroupMember member) throws GroupsException {
         log.warn("Unsupported method accessed:  SmartLdapGroupStore.contains");
         throw new UnsupportedOperationException(UNSUPPORTED_MESSAGE);
     }
 
+    @Override
     public void delete(IEntityGroup group) throws GroupsException {
         log.warn("Unsupported method accessed:  SmartLdapGroupStore.delete");
         throw new UnsupportedOperationException(UNSUPPORTED_MESSAGE);
@@ -183,6 +185,7 @@ public final class SmartLdapGroupStore implements IEntityGroupStore {
      * @return org.apereo.portal.groups.IEntityGroup
      * @param key java.lang.String
      */
+    @Override
     public IEntityGroup find(String key) throws GroupsException {
 
         if (isTreeRefreshRequired()) {
@@ -203,6 +206,7 @@ public final class SmartLdapGroupStore implements IEntityGroupStore {
      * @return java.util.Iterator
      * @param gm org.apereo.portal.groups.IEntityGroup
      */
+    @Override
     public Iterator findParentGroups(IGroupMember gm) throws GroupsException {
 
         if (isTreeRefreshRequired()) {
@@ -264,6 +268,7 @@ public final class SmartLdapGroupStore implements IEntityGroupStore {
      * @return java.util.Iterator
      * @param group org.apereo.portal.groups.IEntityGroup
      */
+    @Override
     public Iterator findEntitiesForGroup(IEntityGroup group) throws GroupsException {
 
         if (isTreeRefreshRequired()) {
@@ -276,6 +281,7 @@ public final class SmartLdapGroupStore implements IEntityGroupStore {
         return findMemberGroups(group);
     }
 
+    @Override
     public ILockableEntityGroup findLockable(String key) throws GroupsException {
         log.warn("Unsupported method accessed:  SmartLdapGroupStore.findLockable");
         throw new UnsupportedOperationException(UNSUPPORTED_MESSAGE);
@@ -292,6 +298,7 @@ public final class SmartLdapGroupStore implements IEntityGroupStore {
      * @return String[]
      * @param group org.apereo.portal.groups.IEntityGroup
      */
+    @Override
     public String[] findMemberGroupKeys(IEntityGroup group) throws GroupsException {
 
         if (isTreeRefreshRequired()) {
@@ -317,6 +324,7 @@ public final class SmartLdapGroupStore implements IEntityGroupStore {
      * @return java.util.Iterator
      * @param group org.apereo.portal.groups.IEntityGroup
      */
+    @Override
     public Iterator findMemberGroups(IEntityGroup group) throws GroupsException {
 
         if (isTreeRefreshRequired()) {
@@ -338,12 +346,14 @@ public final class SmartLdapGroupStore implements IEntityGroupStore {
         return rslt.iterator();
     }
 
+    @Override
     public IEntityGroup newInstance(Class entityType) throws GroupsException {
         log.warn("Unsupported method accessed:  SmartLdapGroupStore.newInstance");
         throw new UnsupportedOperationException(UNSUPPORTED_MESSAGE);
     }
 
     // Treats case sensitive and case insensitive searching the same.
+    @Override
     public EntityIdentifier[] searchForGroups(String query, SearchMethod method, Class leaftype)
             throws GroupsException {
 
@@ -423,11 +433,13 @@ public final class SmartLdapGroupStore implements IEntityGroupStore {
         return rslt.toArray(new EntityIdentifier[rslt.size()]);
     }
 
+    @Override
     public void update(IEntityGroup group) throws GroupsException {
         log.warn("Unsupported method accessed:  SmartLdapGroupStore.update");
         throw new UnsupportedOperationException(UNSUPPORTED_MESSAGE);
     }
 
+    @Override
     public void updateMembers(IEntityGroup group) throws GroupsException {
         log.warn("Unsupported method accessed:  SmartLdapGroupStore.updateMembers");
         throw new UnsupportedOperationException(UNSUPPORTED_MESSAGE);
